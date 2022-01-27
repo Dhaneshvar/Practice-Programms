@@ -6,7 +6,8 @@ class bike{
 	//Access Specifiers
 	/*
 	public - members are accessible from outside the class
-	private - members cannot be accessed (or viewed) from outside the class
+	private - members cannot be accessed (or viewed) from outside the class. But can be accessed by member Function of same class
+			 	or Friend Function
 	protected - members cannot be accessed from outside the class, however, they can be accessed in inherited classes.
 	*/
 	//  By default, all members of a class are private if you don't specify an access specifier:
