@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Billing</title>
+	<script>
+		function bill()
+		{
+			alert("Your Bill is Ready.....");
+			var q = document.form1.q.value;
+			alert("Quantity is  = "+q);
+			
+			var p = document.form1.p.value;
+			alert("Price is = "+p);
+
+			var ga = p*q;
+			alert("Gross Amount = "+ga);
+
+			var dis=0;
+			var na=0;
+			if(ga>=10000)
+			{
+				dis = ga*10/100;
+			}
+			na = ga - dis;
+			alert("Net Amount is = "+na);
+			document.form1.na.value  = na;
+
+			document.form2.q1.value = q;
+			document.form2.p1.value = p;
+			document.form2.qa.value = ga;
+			document.form2.dis.value = dis;
+			document.form2.na1.value = na;
+
+
+			return false;
+
+
+		}
+	</script>
+</head>
+<body>
+
+<div class = "container">
+	<h1 align="center"><center>Dhanesh Traders</center></h1>
+
+	<form  name="form1" onsubmit="bill()">
+	<table border="1" align="center" width="34" height="40" cellspacing="0" cellpadding="10" bgcolor="yellow">
+		<tr>
+			<th>
+				<label>Quantity</label>
+			</th>
+			<th>
+				<input type="number" id="quantity" name="q">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<label>Price</label>
+			</th>
+			<th>
+				<input type="number" id="price" name="p">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<label>Final Net Amt</label>
+			</th>
+			<td>
+				<input type="text" id="finalprice" name="na">
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button type="button" onclick="bill();">Bill</button>
+			</th>		
+		</tr>
+		
+	</table>
+</form>
+<hr>
+<br>
+
+<form name="form2">
+	<table width="720" height="100" border="1" align="center" cellpadding="0" cellspacing="8">
+		<tr><th>Quantity</th><th><input type="text" name="q1" value=""></th></tr>
+		<tr><th>Price</th><th><input type="text" name="p1" value=""></th></tr>
+		<tr><th>Gross Amount</th><th><input type="text" name="ga" value=""></th></tr>
+		<tr><th>Discount</th><th><input type="text" name="dis" value=""></th></tr>
+		<tr><th>Net Amount</th><th><input type="text" name="na1" value=""></th></tr>
+	</table>
+</form>
+</div>
+
+</body>
+</html>

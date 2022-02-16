@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+	<script type="text/javascript">
+	function mybill()
+	{
+		let price = parseInt(document.getElementById("price").value);
+		let qnt = parseInt(document.getElementById("quantity").value);
+		let final = price*qnt;
+		if(final >= 10000)
+		{
+			final = final - (final/10);
+		}
+		document.getElementById('finalprice').value = final;
+	}
+</script>
+</head>
+<body>
+
+<div class = "container">
+	<h1 align="center"><center>Dhanesh Traders</center></h1>
+	<table border="1" align="center" width="34" height="40" cellspacing="0" cellpadding="10" bgcolor="yellow">
+		<tr>
+			<th>
+				<label>Quantity</label>
+			</th>
+			<th>
+				<input type="number" id="quantity">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<label>Price</label>
+			</th>
+			<th>
+				<input type="number" id="price">
+			</th>
+		</tr>
+		<tr>
+			<th>
+				<label>Final Net Amt</label>
+			</th>
+			<td>
+				<input type="text" id="finalprice">
+			</td>
+		</tr>
+		<tr>
+			<th colspan="2">
+				<button type="button" onclick="mybill();">Bill</button>
+			</th>		
+		</tr>
+		
+	</table>
+	</div>
+</body>
+</html>
+
+<!-- alert,confirm,prompt - BOM (Browser Object Model)-->
