@@ -1,0 +1,20 @@
+Billing App
+Salary App
+- JS,Jquery,with  Bootstrap
+anujtechedu@gmail.com
+
+Angular (typescript)
+Angular js 3 to all version
+MVC(Model View Controller)
+M - object;
+v - screen/presentation;
+controller - sending/receiving 
+
+
+Database engine service
+default instance
+windows authentication
+add -> advanced -> Everyone
+
+ssms -setup-ENU (For Server Management)
+install (keep default)

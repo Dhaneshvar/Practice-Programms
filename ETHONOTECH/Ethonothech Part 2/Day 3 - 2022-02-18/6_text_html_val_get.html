@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Test_Html</title>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#btn1").click(function(){
+				alert("Text : "+$("#text").text());
+			});
+			$("#btn2").click(function(){
+				alert("HTML : "+$("#text").html());
+			});
+			$("#btn3").click(function(){
+				alert("Value : "+$("#val").val());
+			});
+		});
+	</script>
+</head>
+<body>
+	<center>
+	<p id="text"><img src="jquery-tutorial.jpg" alt="jquery-3" >
+		<br>
+		Now We Are Going to Learn !!!<strong>JQUERY</strong>
+		<br>
+		<br>
+		<label>Name</label>
+		<input type="text" id="val" value="JQUERY">
+	
+	<br>
+	</p>
+	<button id="btn1">Show Text</button>
+	<button id="btn2">Show HTML</button>
+	<button id="btn3">Show  Value</button>
+	</center>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Setting</title>
+
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script>
+		let num1  = 
+		$(document).ready(function(){
+			$("#add").click(function(){
+				$("#res").val(parseInt($("#num1").val())  + parseInt($("#num2").val()));
+			});
+		});
+	</script>	
+</head>
+<body bgcolor="pink">
+	<center>
+	<div style="border: solid 3px red; width: fit-content; background-color: lightblue;border-radius: 5px;padding: 20px 30px;">
+	<h1>Addition of two Numbers</h1>
+	<h1>Number 1 :</h1>
+	<input type="number" id="num1">
+	<h1>Number 2 :</h1>
+	<input type="number" id="num2">
+	<br>
+	<br>	
+	<button id="add">ADD</button>
+	<br>
+	<h1>RESULT</h1>
+	<input type="number" id="res">
+	</div>
+	</center>
+</body>
+</html>
