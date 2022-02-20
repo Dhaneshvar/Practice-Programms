@@ -4,13 +4,15 @@
 <head>
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<title>Salary Calculator</title>
+	<title>Dhanesh Hotel Billing</title>
 	<style>
 		h1,h2,h3{text-align: center;color: yellow;text-shadow: 2px 2px red;}
+		ol{font-size: 20px;}
 		#head{background-color: black;border: 2px darkred;border-radius: 3px;border-style: inherit;}
-		table{font-size: 15px;background-color: greenyellow;}
-		th{color: red;}
-		td{color: green;}
+		#t1{font-size: 15px;background-color: #000B49;color: #FEE3EC;border-radius: 50px;}
+		#t2{background-color: #FFE400;color:#FF1700;}
+		#t1,#t2{overflow-y: hidden;overflow-x: hidden;table-layout:fixed;}
+		body{background-image: linear-gradient(to right,#FF5677, #548CFF,#FFFDA2);}
 		#flip,#pannel
 		{
 			/*padding: 4px;*/ 
@@ -48,9 +50,10 @@
 	<hr>
 	</div>
 	
-	<center><div id="flip" style="width: 50px;"><button>MENU</button></div></center>
+	<center><div id="flip" ><button style="width: 100px;height: 50px; border-style: ridge;border-color: orangered;color: darkgreen;background-color: orange;">MENU CARD</button></div></center>
+	<br>
 			<div id="pannel">	
-				<table align="center" border="1" cellpadding="40px" cellspacing="0" >
+				<table align="center" border="2" id="t1"cellpadding="30px" cellspacing="0" >
 				<tr><th>Vegetable</th>
 				<td>
 				<ol>
@@ -116,8 +119,9 @@
 	</table>	
 </div>
 </div>
-
-	<table align="center"  border="2" cellpadding="5px" cellspacing="0">
+<br>
+<br>
+	<table id="t2"align="center"  border="2" cellpadding="2px" cellspacing="2" style="height: 200px;">
 		<tr>
 			<th>SI.No</th>
 			<th>Items</th>
@@ -129,34 +133,32 @@
 			<th>Net Amount</th>
 		</tr>
 		<tr>
-			<td><label>1.</label>
-			<td><input type="text" ng-model="i1"></td>
-			<td><input type="text" ng-model="q1"></td>
-			<td><input type="text" ng-model="r1" ></td>
-			<td><input type="text" ng-model="d1"></td>
-			<td><input type="text" value={{d}} ng-model="d"></td>
-			<td><input type="text"  value = {{ga}}></td>
-			<td><input type="text"  value = {{na}} onmouseenter ="calcu(q1,r1,d1)"></td>
+			<th><label>1.</label></th>
+			<th><input type="text" placeholder="Vegetable" ng-model="i1"></th>
+			<th><input type="text" ng-model="q1"></th>
+			<th><input type="text" ng-model="r1" ></th>
+			<th><input type="text" ng-model="d1"></th>
+			<th><input type="text"  value={{disamt}}></th>
+			<th><input type="text"  value = {{ga}}></th>
+			<th><input type="text"  value = {{na}} ng-click="calcu(q1,r1,d1)"></th>
 		</tr>
-		<!-- <tr>
-			<td><label>2.</label>
-			<td><input type="text" ng-model="i2"></td>
+		<tr>
+			<th><label>2.</label></th>
+			<td><input type="text" placeholder ="Non-Vegetable" ng-model="i2"></td>
 			<td><input type="text" ng-model="q2"></td>
 			<td><input type="text" ng-model="r2"></td>
 			<td><input type="text" ng-model="d2"></td>
-			<td><input type="text" ng-model="ga2"></td>
-			<td><input type="text" ng-model="na2"></td>
+			<td><input type="text"  value={{disamt2}}></td>
+			<td><input type="text" value="{{ga2}}"></td>
+			<td><input type="text" value="{{na2}}" ng-click="calcu2(q2,r2,d2)"></td>
 		</tr>
 		<tr>
-			<td><label>3.</label>
-			<td><input type="text" ng-model="i3"></td>
-			<td><input type="text" ng-model="q3"></td>
-			<td><input type="text" ng-model="r3"></td>
-			<td><input type="text" ng-model="d3"></td>
-			<td><input type="text" ng-model="ga3"></td>
-			<td><input type="text" ng-model="na3"></td>
+			<th><label>3.</label></th>
+			<th colspan="5">TOTAL</th>
+			<td ><input type="text" value={{tga}}></td>
+			<td ><input type="text" value={{tna}} ng-click="total()"></td>
 		</tr>
-		<tr>
+		<!--<tr>
 			<td><label>4.</label>
 			<td><input type="text" ng-model="i4"></td>
 			<td><input type="text" ng-model="q4"></td>

@@ -21,3 +21,14 @@
 <input type="text" value={{b}} >
 </body>
 </html>
+
+
+<body onafterprint="myFunction()">
+<body onbeforeprint="myFunction()">
+<body onbeforeunload="myFunction()">
+<input type="text" id="one" onblur="myFunction()"> toUpperCase();	after entering text feild click anywhere then event happens
+document.getElementById('one').onblur = function(){myFunction()};
+document.getElementById('one').addEventListener('blur',myFunction());	on entering text feild event happend
+<input type="text" id="one" onfocus="myFunction()">
+<input type="text" onchange="myFunction()"> change in checkbox,inputfeild
+</body>

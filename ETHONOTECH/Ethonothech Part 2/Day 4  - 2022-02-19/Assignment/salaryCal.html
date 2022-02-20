@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html ng-app = 'empSal'>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style>
+		#top
+		{
+			background-image: linear-gradient(to right,#F0A500,#06FF00,#99FEFF);
+			border: 3px black;
+			border-radius: 10px;
+			color: #03045E;
+			text-shadow: 4px 2px red;
+		}
+
+		#middle
+		{
+			color: red;
+			width: fit-content;
+			/*background-color: #54BAB9;*/
+		}
+		body{
+			background-image: linear-gradient(to left, #CE7BB0,lightgreen,skyblue);
+		}
+		button{background-image: linear-gradient(to right,lightgreen,palegreen,skyblue,pink)}
+		#last{border: solid 2px red; width: fit-content;background-image: linear-gradient(to bottom right, pink, yellow);
+				font-family: cursive;font-size: 20px;border-radius: 8px;
+		}
+		p{padding: 2px 8px;}
+	</style>
+
+	<!-- Online Links -->
+	<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2Q
+	vZ6jIW3" crossorigin="anonymous"> -->
+	
+	<!-- Offline Links -->
+	<link rel="stylesheet" href="bootstrap.css">
+	<script src="angular.min.js"></script>
+	<script src="bootstrap.js"></script>
+	<script src="salary.js"></script>
+	<title>Employee Salary Calculator</title>
+
+</head>
+<body ng-controller="addCtrl">
+	<div class="container" align="center" id="top">
+		<h1 style="font-family: sans-serif;font-weight:inherit;">EMPLOYEE SALARY CALCULATOR</h1>
+	</div>
+
+	<table align="center" class="table table-bordered table-striped table-hover table-dark" style="width:98%;border-radius: 20px;">
+	<thead>
+		<tr>
+			<th>FirstName</th>
+			<th>LastName</th>
+			<th>G-Mail ID</th>
+			<th>Contact Number</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr class="table-danger">
+			<td><input placeholder="FirstName" type="text" ng-model="fname"></td>
+			<td><input placeholder="LastName" type="text" ng-model="lname"></td>
+			<td><input placeholder="name@gmail.com" type="text" ng-model="gmail"></td>
+			<td><input placeholder="91xxxxxxxx" type="tel" ng-model="cnumber"></td>
+		</tr>
+	</tbody>		
+	</table>
+
+
+	<table id="middle" align="center" class="table table-hover table-bordered table-striped" >
+		<thead>
+			<tr style="background-color:orange;">
+				<th colspan="2" style="padding-left: 300px;">Basic Salary</th>
+				<td><input type="text" ng-model="bsalary"></td>
+				<td><center><button ng-click="calculate(bsalary)">Calculate</button></center></td>
+			</tr>
+			<tr style="background-color: #F9E4D4;background-image: linear-gradient(to bottom, purple,skyblue,#325288);">
+				<th>Dearness Allowance</th>
+				<th><input type="text" value ={{DA}}></th>
+				<th>House Rent Allowance (HRA)</th>
+				<th><input type="text" value ={{HRA}}></th>
+			</tr>
+			<tr style="background-color: #F9E4D4;background-image: linear-gradient(to bottom, purple,skyblue,#325288);">
+				<th>Employees Provident Fund (EPF)</th>
+				<th><input type="text" value ={{EPF}}></th>
+				<th>Gross Amount</th>
+				<th><input type="text" value ={{GA}}></th>
+			</tr>
+			<tr style="background-color: green;">
+				<th  colspan="2" style="padding-left: 300px;">Net Amount</th>
+				<th><input type="text" value = {{NA}} ng-click="calculate(bsalary)"></th>
+				<td><center><button ng-click="print(fname,lname,gmail,cnumber)">Print Receipt</button></center></td>
+			</tr>
+		</thead>
+	</table>
+	<center>
+	<div id="last">
+		<p>First Name 	: {{FirstName}}</p>
+		<p>Last Name  	: {{LastName}}</p>
+		<p>Gmail        : {{Gmail}}</p>
+		<p>Phone Number : {{PNumber}}</p>
+		<p>Net Salary 	: {{NA}}</p>
+	</div>
+	</center>
+</body>
+</html>
