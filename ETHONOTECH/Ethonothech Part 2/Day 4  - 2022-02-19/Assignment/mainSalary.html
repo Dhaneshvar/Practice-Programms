@@ -1,0 +1,180 @@
+
+<!DOCTYPE html>
+<html ng-app="hotel">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Salary Calculator</title>
+	<style>
+		h1,h2,h3{text-align: center;color: yellow;text-shadow: 2px 2px red;}
+		#head{background-color: black;border: 2px darkred;border-radius: 3px;border-style: inherit;}
+		table{font-size: 15px;background-color: greenyellow;}
+		th{color: red;}
+		td{color: green;}
+		#flip,#pannel
+		{
+			/*padding: 4px;*/ 
+			/*background-color: royalblue;
+			border: solid 2px aliceblue;
+			width: fit-content;
+			color: whitesmoke;*/
+		}
+		#pannel
+		{
+			display: none;
+			padding: 4px;
+		}
+	</style>
+	<script src="angular.min.js"></script>
+	<script src="salaryfunc.js"></script>
+	<script src="ratecalculate.js"></script>
+	<script src="jquery-3.6.0.min.js"></script> <!-- For Jquery Menu -->
+	
+	<script>
+		$(document).ready(function(){
+			$("#flip").click(function(){
+				$("#pannel").toggle('slow');
+			});
+		});
+	</script>
+
+</head>
+<body ng-controller="addCtrl">
+	
+	<div id="head">
+	<h1>Dhaneshvar Veg and Non Veg Resturant</h1>
+	<h2>No.51, MuthialPet, Puducherry - 605 003.</h2>
+	<h3>Contact Number : 8022771211</h3>
+	<hr>
+	</div>
+	
+	<center><div id="flip" style="width: 50px;"><button>MENU</button></div></center>
+			<div id="pannel">	
+				<table align="center" border="1" cellpadding="40px" cellspacing="0" >
+				<tr><th>Vegetable</th>
+				<td>
+				<ol>
+					Morning - BreakFast
+					<hr>
+					<li>Idly</li>
+					<li>Dosa</li>
+					<li>Vada</li>
+					<li>Poori</li>
+					<li>Pongal</li>
+				</ol>
+				<ol>
+					AfterNoon - Lunch
+					<hr>
+					<li>Sambaar Rice,Potato</li>
+					<li>Kara Kozhambu,Appalam</li>
+					<li>Curd Rice,Pickle</li>
+					<li>Lemon,Tamarand Rice</li>
+					<li>Veg Biriyani</li>
+				</ol>
+				<ol>
+					Night - Dinner
+					<hr>
+					<li>Naan</li>
+					<li>Veg Noodles</li>
+					<li>Chappthi</li>
+					<li>Poori</li>
+					<li>Parota</li>
+				</ol>
+				</td>
+
+				<th>Non - Vegetable</th>
+				<td>
+				<ol>
+					Morning - BreakFast
+					<hr>
+					<li>Chicken Kari thookuu</li>
+					<li>Chicken Kari Dosa</li>
+					<li>Chicken Kari Vada</li>
+					<li>Chicken Kari Poori</li>
+					<li>Fried Roast Idly</li>
+				</ol>
+				<ol>
+					AfterNoon - Lunch
+					<hr>
+					<li>Chicken Kari Rice,Chicken 65</li>
+					<li> Chicken Kari Kara Kozhambu,Appalam</li>
+					<li>Chicken Kari Curd Rice,Pickle</li>
+					<li>Chicken Kari Lemon,Tamarand Rice</li>
+					<li>Chicken Kari Biriyani</li>
+				</ol>
+				<ol>
+					Night - Dinner
+					<hr>
+					<li>Roasted  Kari</li>
+					<li>Panri Dipped Chicken Kari </li>
+					<li>Chicken Kari  Chappthi</li>
+					<li>Chicken Kari  Poori</li>
+					<li>Chicken Kari Gobimanjuri</li>
+				</ol>
+			</td>
+		</tr>	
+	</table>	
+</div>
+</div>
+
+	<table align="center"  border="2" cellpadding="5px" cellspacing="0">
+		<tr>
+			<th>SI.No</th>
+			<th>Items</th>
+			<th>Quantity</th>
+			<th>Rate/Price</th>
+			<th>Discount</th>
+			<th>Discount Amount</th>
+			<th>Gross Amount</th>
+			<th>Net Amount</th>
+		</tr>
+		<tr>
+			<td><label>1.</label>
+			<td><input type="text" ng-model="i1"></td>
+			<td><input type="text" ng-model="q1"></td>
+			<td><input type="text" ng-model="r1" ></td>
+			<td><input type="text" ng-model="d1"></td>
+			<td><input type="text" value={{d}} ng-model="d"></td>
+			<td><input type="text"  value = {{ga}}></td>
+			<td><input type="text"  value = {{na}} onmouseenter ="calcu(q1,r1,d1)"></td>
+		</tr>
+		<!-- <tr>
+			<td><label>2.</label>
+			<td><input type="text" ng-model="i2"></td>
+			<td><input type="text" ng-model="q2"></td>
+			<td><input type="text" ng-model="r2"></td>
+			<td><input type="text" ng-model="d2"></td>
+			<td><input type="text" ng-model="ga2"></td>
+			<td><input type="text" ng-model="na2"></td>
+		</tr>
+		<tr>
+			<td><label>3.</label>
+			<td><input type="text" ng-model="i3"></td>
+			<td><input type="text" ng-model="q3"></td>
+			<td><input type="text" ng-model="r3"></td>
+			<td><input type="text" ng-model="d3"></td>
+			<td><input type="text" ng-model="ga3"></td>
+			<td><input type="text" ng-model="na3"></td>
+		</tr>
+		<tr>
+			<td><label>4.</label>
+			<td><input type="text" ng-model="i4"></td>
+			<td><input type="text" ng-model="q4"></td>
+			<td><input type="text" ng-model="r4"></td>
+			<td><input type="text" ng-model="d4"></td>
+			<td><input type="text" ng-model="ga4"></td>
+			<td><input type="text" ng-model="na4"></td>
+		</tr>
+		<tr>
+			<td><label>5.</label>
+			<td><input type="text" ng-model="i5"></td>
+			<td><input type="text" ng-model="q5"></td>
+			<td><input type="text" ng-model="r5"></td>
+			<td><input type="text" ng-model="d5"></td>
+			<td><input type="text" ng-model="ga5"></td>
+			<td><input type="text" ng-model="na5"></td>
+		</tr> -->
+	</table>
+
+</body>
+</html>

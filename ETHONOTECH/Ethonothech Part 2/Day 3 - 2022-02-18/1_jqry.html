@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Jquery Hide</title>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script >
+		$(document).ready(function(){
+			alert('hellow');
+			$('#hide').click(function(){
+				$('p').hide();
+			});
+			$('#sh').click(function(){
+				$('p').show();
+			});
+		});
+	</script>
+</head>
+<body>
+<p>Hellow Hide me</p>
+<p>me too</p>
+<button id="hide">HIDE</button>
+<button id="sh">SHOW</button>
+</body>
+</html>

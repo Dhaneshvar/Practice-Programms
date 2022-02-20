@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Calculation</title>
+	<style >
+		div{font-family: inherit;font-size: 30px;align-items: center;color: yellowgreen;}
+		table{border-style: dashed;border-width: 4px;}
+	</style>
+	<script>
+		function bill()
+		{
+			
+			var bs = parseInt(document.getElementById("bsw").value);
+			var n = document.getElementById('nam').value;
+			alert("Do You Want to See Salary");
+			var rent = (bs*10)/100;
+			var dearness = (bs*10)/100;
+			var providence = (bs*10)/100;
+			document.getElementById('HRA').value = rent;
+			document.getElementById('DA').value = dearness;
+			document.getElementById('PF').value = providence;
+			document.getElementById('GA').value = bs + rent + dearness;
+			document.getElementById('NA').value = (bs + rent + dearness) - providence;
+
+			document.getElementById('housee').innerHTML = n +" Basic Salary is "+ document.getElementById("bsw").value;
+			document.getElementById('alloww').innerHTML = n +" Dearness Allowance  is "+ document.getElementById("DA").value;
+			document.getElementById('fundd').innerHTML = n +" Provident Fund is "+ document.getElementById("PF").value;
+			document.getElementById('gross').innerHTML = n +" Gross Amount is "+ document.getElementById("GA").value;
+			document.getElementById('nett').innerHTML = n +" Net Amount is "+ document.getElementById("NA").value;
+			document.getElementById('thank').innerHTML = "Thank You.";
+
+		}
+	</script>
+</head>
+<body bgcolor="black">
+	<hr>
+	<h1 align="center" style="color: whitesmoke;text-shadow: 2px 3px red;"> Annual salary Package For Employees </h1>
+	<hr>
+	<br>
+	<center>
+		<table name="table1" align="center" width="500" height="100" border="2" cellpadding="0" cellspacing="0" bgcolor="pink">  <!--cellpadding="0" cellspacing="10" -->
+			<tr>
+				<th colspan="5">Name</th>
+				<th colspan="2"><input type="text" id="nam"></th>
+			</tr>
+			<tr>
+				<th colspan="5">Enter your Basic Salary</th>
+				<th><input type="text" placeholder="Basic Salary" id="bsw"></th>
+				<th><button type="button" style="color: orangered;" onclick="bill()";>Calculate</button></th>
+			</tr>
+
+		</table>
+		<br>
+		<table name="table2" align="center" width="700" height="100" border="2" cellpadding="3" cellspacing="0" bgcolor="skyblue">	
+			<tr>
+				<th colspan="2">House Rent Allowance(HRA)</th>
+				<th colspan="3">Dearness Allowance(DA)</th>
+				<th colspan="5">Providence Fund(PF)</th>
+				<th colspan="1">Gross Amount(GA)</th>
+				<th colspan="2">Net Salary(NA)</th>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="text" id="HRA"></th>
+				<th colspan="3"><input type="text" id="DA"></th>
+				<th colspan="5"><input type="text" id="PF"></th>
+				<th colspan="1"><input type="text" id="GA"></th>
+				<th colspan="2"><input type="text" id="NA"></th>
+			</tr>
+		</table>
+	</center>
+	<!-- let b = document.getElementById("bsw").value; -->
+	<br>
+	<center>
+	<div class="container" style="border: 5px solid yellow;border-radius:30px;width:fit-content ;" >
+	<div id="housee"></div>
+	<div id="alloww"></div>
+	<div id="fundd"></div>
+	<div id="gross"></div>
+	<div id="nett"></div>
+	</center>
+	<div align="center" style="color: red;" id="thank"></div>
+	</div>
+	
+</body>
+</html>
+
+<!-- 
+hra= house rent allowment. 	hra = bs*10/100;
+da = Dearnes alotment		da = bs*10/100;
+pf = providence fund	 	ps = bs*10/100;
+ -->

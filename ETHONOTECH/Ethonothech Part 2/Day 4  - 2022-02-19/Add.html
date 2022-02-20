@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html ng-app="addApp">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<style >
+		table{background-color:yellow;}
+		hr{border-color: black;}
+	</style>
+
+	<title>Adding Using ng</title>
+	
+	<script src="angular.min.js"></script>
+	<script src="addme.js"></script>
+
+</head>
+<body bgcolor="skyblue">
+<div style="border: solid 56px red;">
+	<form ng-controller="addCtrl">
+		<hr>
+		<h1 align="center">Operation with Two Numbers using AngularJS</h1>
+		<hr>
+		<br>
+		<table border="1" align="center" width="330" height="150" cellpadding="6" cellspacing="0">
+			<tr>
+				<th>Number 1</th>
+				<th><input type="Number" ng-model="a"></th>
+			</tr>
+			<tr>
+				<th>Number 2</th>
+				<th><input type="Number" ng-model="b"></th>
+			</tr>
+			<!-- <tr>
+				<th>Result </th>
+				<th><input type="text" value = {{result}}></th>
+			</tr>
+			<tr>
+				<th colspan="2"><input type="submit" ng-click="sumNum(a,b)"></th>
+			</tr> -->
+		</table>
+
+		<br>
+		<br>
+		
+		<table  border="1" align="center" width="350" height="190" cellpadding="10" cellspacing="0">
+			<tr>
+				<th><button  ng-click="sumNum(a,b)">ADD</button></th>
+				<th><input type="text" value={{a1}} ></th>
+			</tr>
+			<tr>
+				<th><button  ng-click="subNum(a,b)">SUB</button></th>
+				<th><input type="text" value={{b1}} ></th>
+			</tr>
+			<tr>
+				<th><button  ng-click="mulNum(a,b)">MUL</button></th>
+				<th><input type="text" value={{m1}} ></th>
+			</tr>
+			<tr>
+				<th><button  ng-click="divNum(a,b)">DIV</button></th>
+				<th><input type="text" value={{d1}} ></th>
+			</tr>
+		</table>
+		<div align="center">
+			<h2>Sum of {{a}} + {{b}} is {{a1}} &nbsp;&nbsp;&nbsp; Sub of {{a}} + {{b}} is {{b1}}</h2>
+			<h2>Mul of {{a}} + {{b}} is {{m1}} &nbsp;&nbsp;&nbsp; Div of {{a}} + {{b}} is {{d1}}</h2>
+		</div>
+	
+	</form>
+</div>
+</body>
+</html>

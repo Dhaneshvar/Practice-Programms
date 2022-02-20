@@ -1,0 +1,33 @@
+Billing App
+Salary App
+- JS,Jquery,with  Bootstrap
+anujtechedu@gmail.com
+
+Angular (typescript)
+Angular js 3 to all version
+MVC(Model View Controller)
+M - object;
+v - screen/presentation;
+controller - sending/receiving 
+
+
+Database engine service
+default instance
+windows authentication
+add -> advanced -> Everyone
+
+ssms -setup-ENU (For Server Management)
+install (keep default)
+
+Dependency  Injection - Runn time object creation
+
+ng-directives,ng-app - name of the Application we want to write. It is the starting point/owner.
+ng-model used instead of the names,value etc.. in html
+ng-bind - give the name what we written. or use{{expression}}
+ng-init - initialization
+4 types of var,const,let,withoutDeclaration.
+
+$('p')append("<b><input>")
+shift+alt+1
+
+Login and Logout CRUD EXample

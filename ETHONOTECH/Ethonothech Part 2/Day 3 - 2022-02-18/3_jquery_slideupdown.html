@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Slide Up</title>
+	<script type="text/javascript" src="jquery-3.6.0.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$("#flip").click(function(){
+				$('#pannel').toggle('slow');
+				// $('#pannel').slideUp('slow');	//Slide Up
+				// $('#pannel').slideDown('slow');  //slideDown
+			});
+		});	
+	</script>
+	<style>
+		#flip,#pannel{
+			padding: 5px;
+			text-align: center;
+			background-color: lightgreen;
+			border: solid 1px red;
+			width: fit-content;
+			color: blueviolet;
+		}
+		#pannel
+		{
+			padding: 50px;
+			display: none;		 /*need for SlideUp only */ 
+		}
+	</style>
+</head>
+<body bgcolor="pink">
+	<center>
+
+<div id="flip">Click to Slide Down pannel</div>
+<div id='pannel'>Welcome to JQUERY TUTo. 
+<br>
+Come  Let us have a fun a whole day!!
+<br>
+............................................
+<br>
+<br>
+<img src="jquery-tutorial.jpg" alt="jquery-3">
+</div>
+</center>
+</body>
+</html>
