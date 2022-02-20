@@ -17,6 +17,7 @@ windows authentication
 add -> advanced -> Everyone
 
 ssms -setup-ENU (For Server Management)
+<<<<<<< HEAD
 install (keep default)
 
 Dependency  Injection - Runn time object creation
@@ -31,3 +32,6 @@ $('p')append("<b><input>")
 shift+alt+1
 
 Login and Logout CRUD EXample
+=======
+install (keep default)
+>>>>>>> 8332523471c3ca323df09bf82ab4fab2d8eb4523
