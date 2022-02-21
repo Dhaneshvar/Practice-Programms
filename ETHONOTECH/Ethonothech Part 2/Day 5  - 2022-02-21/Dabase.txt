@@ -1,0 +1,99 @@
+Database
+data
+informatiom
+database
+database management system
+database server
+rdmbs- relational Data Base Management System (Rules)
+SMA - static MEmory Allocation (Var i=0)
+DMA - Dynamic M A 
+Two Features of Server:
+1. 24 Hours ON
+2. Configuration Should be High
+
+(I) SQL - Structured Query Language 	(II) PlSQL - Procedural SQL (Advanced Part (Controll Statement))
+
+1.DDL - Data Definiton Language			(shema/Structured)	Commands: (create,alter,drop)
+2.DML - Data Mainupulation Language		(updating inside data/ Playing with data)	Commands : (insert,update,delete,select)
+3.DCL - Data Contorll Language			Commands : (grant,revoke)
+4.TCL - Transection Controll Language	Commands : (commite,rollback,savepoint)
+
+Oraclaei means oracle(Internet)
+Oraclec means oracle(Cloud)
+
+SQLyog Ultimate - SOFTWARE
+*************************************************************************************************************************
+CREATE DATABASE smvecdb		(Then refresh on left side to see smvecdb server appears)
+SHOW DATABASES;
+
+1.Local Host/IP
+2.Port3306
+
+Type of DataBase : 
+1.centralized Database
+2.nosql Database - Not Only SQL storing wide range of Data. KeyValue Pair,Graph, Wide-column,DocumentOrientedDatabase. Increse the Number of Employee instead training pariticular employee. this  is know as horizontal Scalling.
+3.relational Database - (Table entitity) row(tuple) columns(attributes)
+4.object oriented Database
+5.distributed Database
+6.cloud Database
+7.network Database
+8.herirachial Database
+
+Primary Key  - NOT NULL,row(Tuple),column(attributes)
+Composite Key - combination of key.
+muliple key(column + column act as primary Key for searching value)  - compound key
+Unique key - Have NULL
+Minimal - 
+
+composite/Compound Key:
+
+Installation :
+
+Extract
+mysql1
+install Setup
+next
+select tyical
+Skip Sign-Up - Next
+Finish
+
+Configuration Wizard 1.0.8 :
+Next
+Port Number : 3306
+Uncheck Modify Security Settings
+Finish
+
+NEXT SQLLOY
+All Next
+
+serial NO: 26f359fc-e3f6-4727-8af1-72a1a4a0819d
+localhost
+username : root
+Port : 3307
+
+Sql is not case sentive
+';' is optional.
+
+select particular row and rightClick then ->Execute Query->Execute Selected Query
+/*
+CREATE DATABASE smvecdb;
+SHOW DATABASES;
+
+CREATE TABLE EMPLOYEE(ID INT(32), NAME TEXT(23), MARKS INT(34));
+INSERT INTO EMPLOYEE VALUES(111,"Dhaneshvar",86);
+INSERT INTO EMPLOYEE (id,NAME) VALUES(222,"balu");
+SELECT *FROM EMPLOYEE;
+SELECT *FROM EMPLOYEE WHERE id=111;		/* Selecting id of 1111 */
+
+UPDATE EMPLOYEE SET NAME="Ganeshvar" WHERE id=111
+DELETE FROM EMPLOYEE WHERE id=222
+INSERT INTO EMPLOYEE VALUES(223,"sunil",6)
+UPDATE EMPLOYEE SET NAME="Mohan",MARKS=87 WHERE id=222
+
+DELETE FROM EMPLOYEE;
+DROP TABLE EMPLOYEE;
+DESC EMPLOYEE;
+CREATE TABLE EMPLOYEE (id INT(12), NAME TEXT(34),MARKS INT(12));
+DROP DATABASE smvecdb;
+
+*/	
