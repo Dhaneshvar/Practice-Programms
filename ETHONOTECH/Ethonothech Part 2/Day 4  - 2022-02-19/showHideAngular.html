@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+
+	<script src="angular.min.js"></script>
+</head>
+<body>
+<center>
+	<h1>Angular Click Disable, Show Application</h1>
+	<div ng-app="">
+		<br>
+		<p><input type="checkbox" ng-model="enableDisableButton">Disable Button<button ng-disabled="enableDisableButton">Click ME</button></p>
+		<p><input type="checkbox" ng-model="showHide1">Show Button<button ng-show="showHide1">ClickMe</button></p>
+		<p><input type="checkbox" ng-model="showHide2">Hide Button<button ng-hide="showHide2">ClickMe</button></p>
+		<p>TOTAL CLICK : {{clickCounter}}<button ng-click="clickCounter=clickCounter + 1">Click Me</button></p>
+
+	</div>
+</center>
+</body>
+</html>
