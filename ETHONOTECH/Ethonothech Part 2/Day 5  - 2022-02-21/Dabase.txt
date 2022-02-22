@@ -13,7 +13,7 @@ Two Features of Server:
 
 (I) SQL - Structured Query Language 	(II) PlSQL - Procedural SQL (Advanced Part (Controll Statement))
 
-1.DDL - Data Definiton Language			(shema/Structured)	Commands: (create,alter,drop)
+1.DDL - Data Definiton Language			(shema/Structured)	Commands: (create,alter,drop) Want to use "table" Keyword always
 2.DML - Data Mainupulation Language		(updating inside data/ Playing with data)	Commands : (insert,update,delete,select)
 3.DCL - Data Contorll Language			Commands : (grant,revoke)
 4.TCL - Transection Controll Language	Commands : (commite,rollback,savepoint)
@@ -91,8 +91,8 @@ INSERT INTO EMPLOYEE VALUES(223,"sunil",6)
 UPDATE EMPLOYEE SET NAME="Mohan",MARKS=87 WHERE id=222
 
 DELETE FROM EMPLOYEE;
-DROP TABLE EMPLOYEE;
-DESC EMPLOYEE;
+DROP TABLE EMPLOYEE;	
+DESC EMPLOYEE;			/* Schema/Meta Data */
 CREATE TABLE EMPLOYEE (id INT(12), NAME TEXT(34),MARKS INT(12));
 DROP DATABASE smvecdb;
 
