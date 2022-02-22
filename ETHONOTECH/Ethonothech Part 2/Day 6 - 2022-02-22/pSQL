@@ -1,0 +1,17 @@
+Procedural Language PSQL: 
+
+DECLARE
+a integer := 23;:= 'A';
+BEGIN
+c := a+b;
+dbms_output.put_line("s"||) '|| concatenation'
+END;
+
+Prrocedure Code:
+create or replace procedure "insertuser"
+(id IN NUMBER, name IN VARCHAR2)
+is
+begin
+insert into user values(id,name);
+end;
+

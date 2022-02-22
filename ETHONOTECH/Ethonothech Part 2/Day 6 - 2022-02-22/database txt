@@ -1,0 +1,37 @@
+create database btechdb;
+show databases;
+USE btechdb; //select from multiple database
+
+CREATE TABLE student(rollNo INT(12), NAME TEXT(34),marks INT(34));FROM  
+INSERT INTO student VALUES(111,"Dhan",234);
+SELECT *FROM student;	
+INSERT INTO student (rollNo,NAME) VALUES (222,"Krishna");
+UPDATE student SET marks=98 WHERE NAME="Krishna";
+INSERT INTO student VALUES(333,"Karan",100);
+DELETE FROM student WHERE rollNo=333;
+INSERT INTO student VALUES(444,"hari",45); 
+UPDATE student SET marks=90 WHERE rollNo=444;
+TRUNCATE student;	//Not Flexiblity but works similar to delete. deleted have id to delete. It will not delete the scheema
+DESCRIBE student;
+DROP TABLE student;	//remove all heading also
+DROP DATABASE btechdb;	//removes the database . refresh at left side . Now database has gone.
+
+javatpoint.com/sql-alter-table
+
+CREATE DATABASE trainerdb;
+USE trainerdb;
+CREATE	TABLE trainerdb(rollno INT (23), NAME TEXT(90));
+SELECT *FROM trainerdb;
+ALTER TABLE trainerdb  ADD (noofStudent INT(23));	
+DESC trainerdb;
+ALTER TABLE trainerdb DROP COLUMN noofStudent;
+ALTER TABLE trainerdb MODIFY noofStudent INT(12);
+
+
+SELECT *from student where department="IT" AND loacation="Chennai";
+SELECT *FROM student WHERE department="IT" or loacation="Chennai";
+
+SELECT *FROM student ORDER BY NAME ASC; /*ASC in ascending order.*/
+SELECT *FROM student ORDER BY NAME DESC; /* This is default by the desending*/
+
+select SUM(emp_salary), emp_city, FROM Employee GROUP BY emp_city; 
