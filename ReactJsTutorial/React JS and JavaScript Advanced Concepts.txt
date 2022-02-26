@@ -1,5 +1,6 @@
+-----------------------------------------------------------------------------------------------------------------------------
 React JS and JavaScript
-
+-----------------------------------------------------------------------------------------------------------------------------
 New Features Of JavaScript
 Let and Const
 Arrow Function
@@ -12,6 +13,11 @@ The Spread Operator and Reset Parameter
 Destructring (HOOK)
 Promises
 Async and await
+
+*******************************************************************************************************************************
+-----------------------------------------------------------------------------------------------------------------------------
+Arrow Function : 
+-----------------------------------------------------------------------------------------------------------------------------
 
 Purpose :
 To create simplified event listeners
@@ -29,7 +35,10 @@ console.log(hello())
 add = (a,b) => a+b
 console.log(add(1,2))
 
+****************************************************************************************************************************
+-----------------------------------------------------------------------------------------------------------------------------
 Template Literals :
+-----------------------------------------------------------------------------------------------------------------------------
 
 BackTick (`):
 1.A simple String : 
@@ -58,9 +67,121 @@ let total = `Total ${ (price * (1+vat)).toFixed(2) }`;
 6.HtMl Templates : 
 let header = "Templates Literals";
 let tags = ["Template literals", "Javascript", 'ES6'];
-let html = '<h2>${header}</h2><ul>';
+let html = `<h2>${header}</h2><ul>`;
 for(const x of tags)
 {
 	html += ` <li>${x}</li> `;
 }
-html += ` <\ul>`;
+html += ` </ul>`;
+
+*************************************************************
+-----------------------------------------------------------------------------------------------------------------------------
+Modules:
+-----------------------------------------------------------------------------------------------------------------------------
+
+1.Scope of Variable
+2.Modules Should declare variable and then use it. (Strictly Typed)
+3.Module code is evaluated only the first time when imported.
+4.In a module, "this" is undefined.
+
+//sayhi.js
+export function sayHi(user)
+{
+	alert(`Hello, ${user}`);
+}
+
+//main.js
+import {sayHi} from "./sayhi.js"; //sayhi.js in current folder where main.js is there
+alert(sayHi);	//return function.
+sayHi('Dhanesh');	//return Hello, Dhanesh
+
+//Main.html File
+<script type="module">
+
+import {sayHi} from './sayhi.js';
+document.body.innerHTML = sayHi("Dhanesh");
+
+</script>
+
+Always "use strict"
+<script type="module">
+a = 2;	//Error Because it should be Declared. eg: var a, const a, let a;
+</script>
+
+***************************************************************
+-----------------------------------------------------------------------------------------------------------------------------
+Classes and Inheritances
+-----------------------------------------------------------------------------------------------------------------------------
+
+class Car
+  {
+    constructor(brand)
+    {
+      this.carname = brand;
+    }
+    presentBrand = () => `Your Car Brand is ${this.carname}`;
+  }
+let x = new Car("FORD");  
+console.log(x.presentBrand());
+
+//Base Class/Parent Class
+class Car
+  {
+    constructor(brand)
+    {
+      this.carname = brand;
+    }
+    presentBrand = () => `Your Car Brand is ${this.carname}`;
+  }
+let x = new Car("FORD");  
+console.log(x.presentBrand());      //"Your Car Brand is FORD"
+
+//Derived/Child Class
+  class Model extends Car{  //Extends uses the parent class
+  constructor(brand,model)
+  {
+    super(brand);//Giving the "brand" argument to parent class constructor to initialize it. 
+    this.modelname = model;
+  }
+  describe = () => `Your Car Brand is ${this.presentBrand}. Your  Car Model is ${this.modelname}.`; //"Your Car Brand is FORD  Your  Car Model is XX.
+}
+
+
+let y = new Model("Ford", "XX");
+console.log(y.describe());
+
+https://jsbin.com/ricoboyiva/edit?js,console
+
+<a class="jsbin-embed" href="https://jsbin.com/ricoboyiva/embed?js,console">JS Bin on jsbin.com</a><script src="https://static.jsbin.com/js/embed.min.js?4.1.8"></script>
+-----------------------------------------------------------------------------------------------------------------------------
+//Getter and Setter.
+//UnderScore Properties
+-----------------------------------------------------------------------------------------------------------------------------
+The name of setter/getter method cannot  be the same as the name of the property, in this case carname.
+Many programmers use an underscore character _ before the property name to seperate the getter/setter from the actual property.
+
+Class Car
+{
+	constructor(brand)
+	{
+		this._carname = brand;	//Here this._carname is the PROPERTY.
+	}
+	get carname()		//GETTER
+	{
+		return this._carname;
+	}
+	set carname(x)		//SETTER
+	{
+		this._carname = x;
+	}
+}
+let myCar = new Car("ADDI");
+
+myCar.carname = "Volvo"; //HERE SETTING The value.
+
+document.getElementById("demo").innerHTML = myCar.carname;
+
+Here to get the value use myCar.carname;
+Even though get carname() is function while calling we should not use ().
+
+****************************************************************************
