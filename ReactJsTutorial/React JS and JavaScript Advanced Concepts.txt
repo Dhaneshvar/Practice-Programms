@@ -1,0 +1,66 @@
+React JS and JavaScript
+
+New Features Of JavaScript
+Let and Const
+Arrow Function
+Template Literals - `.....`
+Modules
+Exports & Imports
+Classes, Properties, and Methods
+Classes and Inheritance
+The Spread Operator and Reset Parameter
+Destructring (HOOK)
+Promises
+Async and await
+
+Purpose :
+To create simplified event listeners
+No need to create seperate function and call
+Most of the time the event listeners are used only solve particular purpose
+
+function hello()
+hello = function()
+hello = () =>
+{
+  return "a";
+}
+hello = () =>"BYe";
+console.log(hello())
+add = (a,b) => a+b
+console.log(add(1,2))
+
+Template Literals :
+
+BackTick (`):
+1.A simple String : 
+let text = `Hello World`
+
+2.Quotes Inside
+let text = `He's oftern called as "Ramu"`; //inside BackTick we can use "" '' etc..
+
+3.Multiline Strings : 
+let text = 
+`The Quick
+brown Fox
+jumps over
+the lazy dog`;
+
+4.InterPolation :
+let firstName = "Ramesh";
+let lastName = "rav";
+let text = `Welcome ${firstName}, ${lastName}`;
+
+5.Expression Substitution:
+let price = 10;
+let vat = 0.25;
+let total = `Total ${ (price * (1+vat)).toFixed(2) }`;
+
+6.HtMl Templates : 
+let header = "Templates Literals";
+let tags = ["Template literals", "Javascript", 'ES6'];
+let html = '<h2>${header}</h2><ul>';
+for(const x of tags)
+{
+	html += ` <li>${x}</li> `;
+}
+html += ` <\ul>`;
