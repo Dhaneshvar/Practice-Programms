@@ -197,57 +197,90 @@ to user values.
 
 /*********************************************************************************/
 //React LifeCycle
-class Lifecycle extends React.Component
+// class Lifecycle extends React.Component
+// {
+//   constructor()
+//   {
+//     super();
+//     this.state = {value:"Welcome",name:"Guys"}
+//   }
+//   componentWillMount()  //Executed first
+//   {
+//     alert("componentWillMount will called before render method");
+//   }
+//   render()
+//   {
+//     return 
+//     <div>
+//     <h1>{this.state.value} {this.state.name}</h1>
+//     <button type="button" onClick={this.changvalue}>Change Value</button>
+//     <button type="button" onClick={this.deleteheader}>Change Value</button>
+//     </div>
+//   }
+//   changevalue = () =>
+//   {
+//     this.setState = ({value:"Your are changed"});
+//   }
+//   // In this after 5 sec value changed to Thank You
+//   componentDidMount()
+//   {
+//     setTimeout(()=>{
+//     this.setState({value:"Thank You"})  //Executed 3
+//   }
+//   ,5000);
+//   }
+//   componentWillUpdate()   //Executed 2nd
+//   {
+//     alert("Do You Want To UPDATED componentWillUpdate?");
+//   }
+//   componentDidUpdate()    //Executed 4th
+//   {
+//     document.getElementById("mydiv").innerHTML = "NEW VALUE UPDATED SUCCESSFULLY " +this.state.value;
+//   }
+//   shouldComponentUpdate()   //True or false condition when true update happens
+//   {
+//     return true;
+//   }
+//   deleteheader = () =>
+//   {
+//     this.setState({value:false,name:false})
+//   }
+//   componentWillUnmount()    //When click on that header value will be set false. 
+//   {
+//     alert("Header Deleted");
+//   }
+// }
+// ReactDOM.render(<Lifecycle/>, document.getElementById('root'));
+
+/*************************************************************************************************************************/
+/*-------------------------------------------------------------------------------------------*/
+// React this Keyword
+/*--------------------------------------------------------------------------------------------*/
+class RegvsArr
 {
-  constructor()
+  ChangeColor = function()
   {
-    super();
-    this.state = {value:"Welcome",name:"Guys"}
+    document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Window][object HTMLDivElement][object HTMLButtonElement][object HTMLDivElement]
   }
-  componentWillMount()  //Executed first
-  {
-    alert("componentWillMount will called before render method");
-  }
-  render()
-  {
-    return 
-    <div>
-    <h1>{this.state.value} {this.state.name}</h1>
-    <button type="button" onClick={this.changvalue}>Change Value</button>
-    <button type="button" onClick={this.deleteheader}>Change Value</button>
-    </div>
-  }
-  changevalue = () =>
-  {
-    this.setState = ({value:"Your are changed"});
-  }
-  // In this after 5 sec value changed to Thank You
-  componentDidMount()
-  {
-    setTimeout(()=>{
-    this.setState({value:"Thank You"})  //Executed 3
-  }
-  ,5000);
-  }
-  componentWillUpdate()   //Executed 2nd
-  {
-    alert("Do You Want To UPDATED componentWillUpdate?");
-  }
-  componentDidUpdate()    //Executed 4th
-  {
-    document.getElementById("mydiv").innerHTML = "NEW VALUE UPDATED SUCCESSFULLY " +this.state.value;
-  }
-  shouldComponentUpdate()   //True or false condition when true update happens
-  {
-    return true;
-  }
-  deleteheader = () =>
-  {
-    this.setState({value:false,name:false})
-  }
-  componentWillUnmount()    //When click on that header value will be set false. 
-  {
-    alert("Header Deleted");
-  }
+  // ChangeColor = () =>
+  // {
+  //   document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Object][object Object][object Object][object Object]
+  // }
 }
-ReactDOM.render(<Lifecycle/>, document.getElementById('root'));
+const obj = new RegvsArr;
+//window object calls the function
+window.addEventListener("load",obj.ChangeColor);
+//A button object calls the function
+document.getElementById('btn').addEventListener("click",obj.ChangeColor);
+//A div object calls the function
+document.getElementById("mydiv").addEventListener('click',obj.ChangeColor);
+//A heading Object calls the function
+document.getElementById("myHead").addEventListener("click",obj.ChangeColor);
+
+/***********************************************************************************************************************************/
+// React Event Handling
+/*---------------------------------------------------------------------------------------------------------------------------------*/
+// 1.An Event is an action that could be tiggered as a result of the user action or system generated event.
+// 2.For Example : a mouse click, loading of a web page, pressing a key, etc..
+// 3.React Event Handler named using camelCase rather than Lowercase.
+// 4.In React , with help of JSX you pass a function as the even Handler, rather than a string . onClick={shoot} instead of onClick="Shoot()".
