@@ -24,6 +24,10 @@ function App() {
     </div>
   );
 }
+.App
+{
+  text-align:center;
+}
 
 class MyWebSite extends React.Component
 {

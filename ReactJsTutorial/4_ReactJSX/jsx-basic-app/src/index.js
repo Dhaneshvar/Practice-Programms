@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import './App.css';
+import styles from './demo.modules.css'
 import reportWebVitals from './reportWebVitals';
 import './index.css';
 import MyWebSite from './App.js'
@@ -256,26 +258,26 @@ to user values.
 /*-------------------------------------------------------------------------------------------*/
 // React this Keyword
 /*--------------------------------------------------------------------------------------------*/
-class RegvsArr
-{
-  ChangeColor = function()
-  {
-    document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Window][object HTMLDivElement][object HTMLButtonElement][object HTMLDivElement]
-  }
-  // ChangeColor = () =>
-  // {
-  //   document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Object][object Object][object Object][object Object]
-  // }
-}
-const obj = new RegvsArr;
-//window object calls the function
-window.addEventListener("load",obj.ChangeColor);
-//A button object calls the function
-document.getElementById('btn').addEventListener("click",obj.ChangeColor);
-//A div object calls the function
-document.getElementById("mydiv").addEventListener('click',obj.ChangeColor);
-//A heading Object calls the function
-document.getElementById("myHead").addEventListener("click",obj.ChangeColor);
+// class RegvsArr
+// {
+//   ChangeColor = function()
+//   {
+//     document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Window][object HTMLDivElement][object HTMLButtonElement][object HTMLDivElement]
+//   }
+//   // ChangeColor = () =>
+//   // {
+//   //   document.getElementById('demo').innerHTML += this;  //OUTPUT : DEMO GOES HERE :[object Object][object Object][object Object][object Object]
+//   // }
+// }
+// const obj = new RegvsArr;
+// //window object calls the function
+// window.addEventListener("load",obj.ChangeColor);
+// //A button object calls the function
+// document.getElementById('btn').addEventListener("click",obj.ChangeColor);
+// //A div object calls the function
+// document.getElementById("mydiv").addEventListener('click',obj.ChangeColor);
+// //A heading Object calls the function
+// document.getElementById("myHead").addEventListener("click",obj.ChangeColor);
 
 /***********************************************************************************************************************************/
 // React Event Handling
@@ -284,3 +286,51 @@ document.getElementById("myHead").addEventListener("click",obj.ChangeColor);
 // 2.For Example : a mouse click, loading of a web page, pressing a key, etc..
 // 3.React Event Handler named using camelCase rather than Lowercase.
 // 4.In React , with help of JSX you pass a function as the even Handler, rather than a string . onClick={shoot} instead of onClick="Shoot()".
+
+// class Eventbind extends React.Component
+// {
+//   constructor()
+//   {
+//     super()
+//     this.state={
+//       msg:"welcome"
+//     }
+//   }
+
+//   clickEvent = (a) =>    //clickEvent = (a) =>{this.setState = ({msg:a})}
+//   {
+//     this.setState = (
+//       {
+//         msg:a
+//       })
+//   }
+//   render()
+//   {
+//     return
+//     <div>
+//     <h1>{this.state.msg}</h1>
+//     //<button onClick={()=>this.clickEvent("Hello")}> click  </button>
+//     <button onClick={this.clickEvent.bind(this,"Hello")}> Click  </button>
+//     </div>
+//   }
+// }
+// ReactDOM.render(<Eventbind />,document.getElementById('root')); 
+
+class ReactStyle extends React.Component{
+  render()
+  {
+    const mystyle = {color:"blue",fontFamily:"Arial"};
+  
+    return(
+      <div>
+      //Internal Styling
+      <h1 style={{color:"red",textAlign:"center"}}> Hello World </h1>
+      //External JS File
+      <h2 style={mystyle}>Welcome</h2>
+      //demo.modules.css   .heading{} defined there
+      <h3 className={styles.heading}>Thank You </h3>
+      <h4 className="App">OOK</h4>
+      </div>
+      )
+  }
+}
