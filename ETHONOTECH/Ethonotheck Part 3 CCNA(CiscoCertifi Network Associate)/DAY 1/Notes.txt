@@ -1,0 +1,84 @@
+Networking:
+- Interconnect b/w 2 or more device
+- to sharing data
+
+NIC Network Interface Card.
+
+It Holds two things
+1) MAC Address - Medium Access Control
+cmd -> getmac
+cmd -> ipconfig
+cmd -> ipconfig /All
+
+is the serial Number for NIC Card.
+48 Bit Address
+Divide into 24 bit
+First 24 Bit Vendor ID
+Second 24 Bit Customer ID
+in Hexadecimal Format
+
+2) IP Address
+
+IP4 - Not Based on GeoGraphicalArea, Class A,B,C,D,E,F
+IP6 - Based on GeoGraphicalArea, no Classes
+
+Types of Networking:
+
+1.LAN - Local Area Network.
+2.WAN - Wide Area Network.
+3.MAN - Metropolitian Area Network.
+4.CAN - Campus Area Network.
+5.PAN - Personal Area Network.
+6.SAN - Storage Area Network.
+
+Types of Connection:
+1.Wired
+2.Wireless
+
+1.Peer-to-Peer Connection ->  one to Another System direct Connection. Secure and Fast. (Here PEER - SYSTEM)
+2.ClientServer Connection -> 
+
+Cisco Packet Tracer -> Visual Stimulation.
+pkt extension.
+
+1.End User -> PC -> Click PC(Rename) Take 2 PC.
+2.Auto Connnection and Connect 2 PC.
+3.Packet (Messsage box icon on top) and click on 2 PC.
+4.Click on PC -> Destop -> IP Configuraton -> 10.0.0.10 -> Now Packet Color Change to GREEN.
+   Same give to Another PC ALso.
+   Give Consecutive IP Address (i.e)11,12,..20.
+5.Click Stimulation -> Click Run .
+6.Click pc -> Destop -> CMD -> ping 10.0.0.20 (USed to check connection pc2 from pc1 and vice versa)
+
+ping - Packet Internet Groper
+
+Multiple System Connnection:
+1. Create 5 - 10 PC.
+2. Bring switch 2960 24TT Switch 0 and connect.
+3. Set IP to all PC. 
+
+hub - sender to all receiver, increase network Traffic, BroadCast
+switch - destination find using MAC Address and send to that destination only, MultiCast, reduce Network Pollution, act as forwarder..
+a) managable - can configure each and every port and (ON/OFF)
+b) Unmanagable - cannot do anything
+
+
+OSI LAYER:
+Please Don Not Throw Sauce Pizza Away
+
+obsidian - editor
+
+Topology: Logical Structure
+1.star topology only implemented in Praicially
+2.all other are only theory concept only.
+
+IPV4 - 32 bit, 4 octet 3 period
+Doted Decimal Notation
+each octet has 0-255.
+
+class A -> 0-127    N,H,H,H  128
+class B -> 128-191  N,N,H,H  64
+class C -> 192-223  N,N,N,H  32
+class D -> 
+
+Eg: 10.0.0.1 and 10.0.0.255 Should not be Given connections.

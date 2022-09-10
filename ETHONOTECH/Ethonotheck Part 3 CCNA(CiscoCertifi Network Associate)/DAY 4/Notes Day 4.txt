@@ -1,0 +1,161 @@
+VLAN - Virtual Local Area Network
+
+What VLAN used for ?
+
+VLANs allow network administrators to autoatically limit access to a specified group of user by dividing workstations into different isolated LAN Segements.
+
+creating only 10 system and data transfer within it. It is done by Network Administrator.
+Security increase.
+Network Traffic Decrease.
+VLANs are identified based on Number 1-10005.
+1 is default VLAN. We cannot use it.
+2-1001 we can allocate
+10002,10003... are allocated to token bus etc..
+
+
+Commands:
+- configure terminal (it change to global configuration)
+- vlan <id>
+or
+- vlan <id> <name of VLAN>
+- exit
+
+- show vlan
+- no vlan <vlan-id> (if we not need vlan)
+- copy running-config startup config
+
+configure terminal
+interface <interface-id>
+switchport mode access		- Define VLAN membership mode for the port.
+switchport access vlan <vlan-id>
+exit
+
+Configuration of SWITCH:
+switch -> CLI -> Place Cursor and Press ENTER -> PRESS 11 Enter.
+
+Switch>en
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#vlan 10
+Switch(config-vlan)#name cse
+Switch(config-vlan)#exit
+Switch(config)#vlan 20
+Switch(config-vlan)#name IT
+Switch(config-vlan)#exit
+Switch(config)#show vlan
+                ^
+% Invalid input detected at '^' marker. (so give 2 times exit and type show vlan)
+	
+Switch(config)#exit
+Switch#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Switch#show vlan
+
+VLAN Name                             Status    Ports
+---- -------------------------------- --------- -------------------------------
+1    default                          active    Fa0/1, Fa0/2, Fa0/3, Fa0/4
+                                                Fa0/5, Fa0/6, Fa0/7, Fa0/8
+                                                Fa0/9, Fa0/10, Fa0/11, Fa0/12
+                                                Fa0/13, Fa0/14, Fa0/15, Fa0/16
+                                                Fa0/17, Fa0/18, Fa0/19, Fa0/20
+                                                Fa0/21, Fa0/22, Fa0/23, Fa0/24
+                                                Gig0/1, Gig0/2
+10   cse                              active    
+20   IT                               active    
+1002 fddi-default                     active    
+1003 token-ring-default               active    
+1004 fddinet-default                  active    
+1005 trnet-default                    active    
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+1    enet  100001     1500  -      -      -        -    -        0      0
+10   enet  100010     1500  -      -      -        -    -        0      0
+20   enet  100020     1500  -      -      -        -    -        0      0
+1002 fddi  101002     1500  -      -      -        -    -        0      0   
+1003 tr    101003     1500  -      -      -        -    -        0      0   
+1004 fdnet 101004     1500  -      -      -        ieee -        0      0   
+1005 trnet 101005     1500  -      -      -        ibm  -        0      0   
+
+VLAN Type  SAID       MTU   Parent RingNo BridgeNo Stp  BrdgMode Trans1 Trans2
+---- ----- ---------- ----- ------ ------ -------- ---- -------- ------ ------
+
+Remote SPAN VLANs
+------------------------------------------------------------------------------
+
+Primary Secondary Type              Ports
+------- --------- ----------------- ------------------------------------------
+
+Switch#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Switch(config)#int fa0/1
+Switch(config-if)#switchport mode access
+Switch(config-if)#switchport access vlan 10
+Switch(config-if)#exit
+
+Switch(config)#int fa0/2
+Switch(config-if)#switch mode access
+Switch(config-if)#switch access vlan 10
+Switch(config-if)#exit
+
+Switch(config)#int fa0/3
+Switch(config-if)#switch mode access
+Switch(config-if)#switch access vlan 10
+Switch(config-if)#exit
+
+Switch(config)#int fa0/4
+Switch(config-if)#switch mode access
+Switch(config-if)#switch access vlan 20
+Switch(config-if)#exit
+
+Switch(config)#int range fa0/4-6
+Switch(config-if-range)#switch mode access
+Switch(config-if-range)#switch access vlan 20
+Switch(config-if-range)#exit
+Switch(config)#
+
+Assiging the set of PC to 1 Virtual LAN 20. So type the Following Commands 
+int range fa0/4-6	(it say that from pc 4 to 6 all select within the given range)
+switchport mode access
+switchport access vlan 20
+exit
+
+INTER VLAN ROUTING:
+
+used to Communicate to Other VLAN.
+Layer 3 Device Needed (Router, Switch)
+
+1.Connect Laptop with Switch 2960-24TT.
+2.Follow the STEP of CONFIGURATION OF PORT
+A VLAN is a broadcast domain, which means computer on seperate VLANs are unable to communicate without 
+3.Switches -> 3560-24PS Multilayer Switch0 (Layer 3 Switch). It can be used To (*)connect different Network (*)Connect VLAN of Other VLAN.
+4.Connect 2 switch with wire.
+5.Create Trunk Protocol(Dynamic): Do in the SWITCH 2960
+en
+conf t
+int fa0/7
+switchport mode dynamic desirable (we have to do Dynamic configuration between Switch) (It show up, down, up)
+exit
+exit
+-------------------------------------------------------------------------------------------------------------
+6.Go to L3 switch ->
+en 
+conf t
+VLAN 10  (tell what are the vlan in it)
+EXIT
+VLAN 20
+EXIT
+INT VLAN 10  (VLAN 10 our interface create pananum)
+IP ADDRESS 10.0.0.1 255.0.0.0
+NO SHUTDOWN
+INT VLAN 20  (VLAN 20 our interface create pananum)
+IP ADDRESS 20.0.0.1 255.0.0.0
+NO SHUTDOWN
+
+IP ROUTING  (It is manditory to set the routing)
+EXIT
+
+SHOW IP ROUTE
+
+----------------------------------------------------------------------------------------------------------------

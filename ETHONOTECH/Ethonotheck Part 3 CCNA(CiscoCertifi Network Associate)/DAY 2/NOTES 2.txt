@@ -1,0 +1,108 @@
+Router - internet Distribute to LAN, Connecting to different IP, Calculate shortest path, maintain IP and MAC ,routing table.
+
+- group 5 each 4 module
+- totaly 20 module
+
+ROUTER CONFIGURATION:
+First Side - 10.0.0.10
+For Other Side - 192.168.0.10
+Router Name : 2620XM
+
+1.Click ROUTER -> NM-4E -> Drag and Drop the Below Hardware into the empty Space.
+
+2.Opitons -> preference -> Always Show Port Labels in Logical Workspace.
+
+3.Again Router Configuration -> Click Router -> CLI -> TYPE No for Would you like to enter the initial configuration dialog? [yes/no]: no
+
+4.Press Enter
+
+5.Commands line activated. Commands are
+* enable
+* conf t     (config terminal)
+* int fa0/0  (int means interface fa0/0 is the port to configure)
+* ip address 10.0.0.01 255.0.0.0 (Assigning the 10.0.0.01 to router this is Network ID)
+* no shutdown (this is to change to state as soon as we do we get green arrow near the Router)
+* Press Enter
+* Type exit
+* Again type exit
+th
+
+For class A:
+
+Router>enable
+Router#
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int fa0/0
+Router(config-if)#ip address 10.0.0.01 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface FastEthernet0/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface FastEthernet0/0, changed state to up
+
+
+For Class C:
+
+Router#enable
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int Eth1/0
+Router(config-if)#ip address 192.168.0.1 255.0.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#
+%LINK-5-CHANGED: Interface Ethernet1/0, changed state to up
+
+%LINEPROTO-5-UPDOWN: Line protocol on Interface Ethernet1/0, changed state to up
+
+Router(config-if)#exit
+Router(config)#exit
+Router#
+%SYS-5-CONFIG_I: Configured from console by console
+
+Router#
+
+
+6. Choose all PC one by one From Class A
+click put default gateway as 10.0.0.01
+
+7. Choose all PC one by one From Class A
+click put default gateway as 192.168.0.01
+
+
+8. end user -> sever -> Connect with cable to router
+9. Click Server -> cmd -> 
+ip : 169.16.0.10
+Default Gateway : 169.16.0.1
+DHCP - Dynamic Host Configuration Protocol (it Automatically assign ip address to other PC)
+
+Configure the router for the Sever Connection:
+Router#en
+Router#conf t
+Enter configuration commands, one per line.  End with CNTL/Z.
+Router(config)#int eth1/1
+Router(config-if)#ip address 169.16.0.1 255.255.0.0
+Router(config-if)#no shutdown
+
+Router(config-if)#exit
+Router(config)#exit
+
+10. Click server -> SERVICE -> http -> index -> edit -> Use our own HTML FILE or leave it by Default.
+11. Open any Pc in network -> go to Destop -> 	Web Browser -> and type "169.16.0.10" -> you will get the html page.
+
+12. Use Again One Server -> Connect with router with wire
+13. ip : 20.0.0.10
+default Gateway: 20.0.0.1
+
+14. Config -> Ethernet1/2 type ip and subnet and Tick the "On" for (no shutdown).
+
+Configure of DNS Server 
+Click DNS Server -> Service -> DNS -> Name : www.dhaneshsmvec.com
+Address : 169.16.0.10
+ON the DNS Service
+Then Click ADD
+then try with other name (i.e) "dhanesh" only enough. this is to type in bar.
+if you try in web browser in Any PC, in search bar "dhanesh". it will give error (Host name Unresolved).
+so Assign the (20.0.0.10 DNS ip) to all PC and Server. 
