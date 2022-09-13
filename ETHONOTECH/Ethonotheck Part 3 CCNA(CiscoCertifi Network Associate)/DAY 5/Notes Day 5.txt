@@ -1,0 +1,95 @@
+IP Address:
+An indentifier for a computer or device on a TCP/IP network. Network using the TCP/IP protocol route message based on the IP address of the destination. 
+
+Class A - Supports 16 millions hosts on each of 127 networks.
+Class B - Supports 65,000 Hosts on each of 16,000 networks.
+Class C - Suports 254 hosts on each 2 millions networks.
+
+IPv4 : 4 octets,  seperated by Periods.
+IPv6 : hexadecimal, Seperated by Colons.
+
+Dual-stack nodes : 0:0:0:0:0:0:w.x.y.z Both as IPv4 and IPv6
+
+Loopback address : 127.0.0.0 - Network number that cannot be assigned to any network.
+127.0.0.1 used for diagnostic testing of the local TCP/IP installation.
+
+APIPA IP : 169.254.x.x
+Automatic Private IP Addressing
+Ip address are self-assigned when the computer ask for an IP address and no one responds.
+(ie.) the computer cannot reach a DHCP server over the network.
+
+Lab Excersise:
+
+1.From End Device -> Take 1 PC, Laptop, Tablet, SmartPhone.
+2.Network Device -> WireLess Device -> WRT300N -> Drag and Drop in WorkSpace. Now Tablet, SmartPhone Get Connected.
+3.Click PC -> PHYSICAL -> Physical Device Preview la -> OFF the PC -> Drag the RJ45 Module and put in the empyt space left bottom -> Drag WMP300N Modules -> ON the PC.
+4. Do the same for LAPTOP.
+5.Now data/Packet transfer Done Easily.
+6.Confiure the Wireless Router WRT300N
+
+codelite
+excalidraw
+
+1.From End Device -> Take 1 PC, Laptop, Tablet, SmartPhone.
+
+2.wireless router0 -> cli -> DHCP (DISABLE) ->Save Settings.
+
+3.Wireless tab -> network Name -> CSE. Now Automatic Connection ablet, SmartPhone will be Disabed.
+
+4.Click PC -> PHYSICAL -> Physical Device Preview la -> OFF the PC -> Drag the RJ45 Module and put in the empyt space left bottom -> Drag WMP300N Modules -> ON the PC.
+
+5. Do the same for LAPTOP.
+
+6.Click PC -> Choose STATIC -> Assign ip : 10.0.0.1 and Subnet : 255.0.0.0 and DefaultGateway is the Router ip Address.(i.e Here) 192.168.0.1
+
+7.Cick PC,Laptop -> Destop Tab -> Wireless Connect -> Connect Tab -> Click Refresh Button -> In Wireless Network Name we get CSE Click that and click Connect Button.
+
+8.tabet,SmartPhone -> config -> SSID :  CSE (give the Name).
+
+DHCP Server Setting:
+1.Server -> assign Ip address : 192.168.0.1
+
+2.On the same Server -> service -> DHCP -> ON the  Service -> Default Gateway : 192.168.0.1 (same as server Address)
+
+3.Start IP Address :  192.168.0.0
+0.0 because 0.1 is assigned to Server and gatway and 0.2,0.3,0.4 etc.. assinged to consecutive system/PC.
+
+4.Subnet Mask : 255.255.255.0
+
+5.Max Number of User : 256 (we can assign the number of system)
+
+6. PC -> Destop -> On the DHCP  .
+
+7. Configure the Router with 
+en
+conf t
+int fa0/0
+ip address 192.168.0.1 255.0.0.0
+no shutdown
+exit
+exit
+
+Between Host and Server:
+Server discover signal -> ip Lease offer -> ip lease request -> acknowlegement signal.
+
+Disadvantage:
+1.Day by Day IP Address Changes
+2.overloop of ip 
+
+ARP - Address Resolution Protocol 
+
+cmd:
+ARP -a
+
+C:\Users\HP>ARP -a
+
+Interface: 192.168.137.219 --- 0x13
+  Internet Address      Physical Address      Type
+  192.168.137.1         ae-12-03-4b-65-22     dynamic
+  192.168.137.255       ff-ff-ff-ff-ff-ff     static
+  224.0.0.22            01-00-5e-00-00-16     static
+  224.0.0.251           01-00-5e-00-00-fb     static
+  224.0.0.252           01-00-5e-00-00-fc     static
+  239.255.102.18        01-00-5e-7f-66-12     static
+  239.255.255.250       01-00-5e-7f-ff-fa     static
+  255.255.255.255       ff-ff-ff-ff-ff-ff     static
