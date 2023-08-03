@@ -1,0 +1,146 @@
+using System;
+using System.Windows.Forms;
+using MySql.Data.MySqlClient;
+
+namespace good
+{
+    public partial class Form1 : Form
+    {
+        private const string connectionString = "server=localhost;userid=root;database=clang2;password=";
+
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void btnSave_Click(object sender, EventArgs e)
+        {
+
+            string inputValue1 = txtInput1.Text;
+            string inputValue2 = txtInput2.Text;
+            string inputValue3 = rbtn1.Text;
+            string inputValue4 = rbtn2.Text;
+
+
+            if (!string.IsNullOrEmpty(inputValue1) && !string.IsNullOrEmpty(inputValue2) && (!string.IsNullOrEmpty(inputValue3)|| !string.IsNullOrEmpty(inputValue4)))
+            {
+
+                using (MySqlConnection connection = new MySqlConnection(connectionString))
+                {
+                    try
+                    {
+                        connection.Open();
+
+
+                        string query = "INSERT INTO process (e_id,name,attendence) VALUES (@inputValue1, @inputValue2,(@inputValue3  or @inputValue4))";
+                        MySqlCommand cmd = new MySqlCommand(query, connection);
+
+
+                        cmd.Parameters.AddWithValue("@inputValue1", inputValue1);
+                        cmd.Parameters.AddWithValue("@inputValue2", inputValue2);
+                        cmd.Parameters.AddWithValue("@inputValue3", inputValue3);
+                        cmd.Parameters.AddWithValue("@inputValue4", inputValue4);
+
+
+
+                        int rowsAffected = cmd.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            MessageBox.Show("Values saved to the database.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        }
+                        else
+                        {
+                            MessageBox.Show("Values could not be saved to the database.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("Error while saving to the database: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
+            }
+            else
+            {
+                MessageBox.Show("Please enter values in both fields.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
+}
+
+
+
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Data.SqlClient;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace SomeName
+{
+    public partial class Form1 : Form
+    {
+        public Form1()
+        {
+            InitializeComponent();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            string constr = @"Data Source=(localdb)\ProjectModels;Initial Catalog=modeldb;Integrated Security=True;Connect Timeout=30;Encrypt=False;";
+            
+            SqlConnection conn = new SqlConnection(constr);
+            conn.Open();
+
+            MessageBox.Show("Database connection successfully");
+
+            string query = "INSERT INTO [dbo].[modeltable] VALUES(\'" + textBox1.Text + "\');";
+
+            SqlCommand cmd = new SqlCommand(query, conn);
+            cmd.ExecuteNonQuery();
+            MessageBox.Show("Succesfully inserted");
+
+            string query2 = "SELECT * FROM [dbo].[modeltable]";
+            SqlCommand cmda = new SqlCommand(query2, conn);
+            SqlDataReader dr = cmda.ExecuteReader();
+
+            string s = "";
+            while (dr.Read())
+            {
+                for(int i=0; i<dr.FieldCount; i++)
+                {
+                    s += dr[i].ToString() + " ";
+                }
+                s += "\n";
+            }
+            dr.Close();
+            MessageBox.Show(s);
+
+            string que = "Select * from [dbo].[modeltable]";
+            SqlCommand cmd1= new SqlCommand(que, conn);
+            SqlDataAdapter adapter = new SqlDataAdapter();
+            adapter.SelectCommand = cmd1;
+            DataTable dt = new DataTable();
+            adapter.Fill(dt);
+            dataGridView1.DataSource = dt;
+
+            string quer = "Delete from [dbo].[modeltable] where name=mm";
+            SqlCommand cmd2 = new SqlCommand(quer, conn);
+            SqlDataAdapter adapter1 = new SqlDataAdapter();
+            adapter1.DeleteCommand = cmd2;
+           
+
+        }
+    }
+}
